@@ -43,6 +43,9 @@ public class QueueStatusCommand extends Command {
                     .addField("Position", ""+ queuePosition, false)
                     .addField("ETA", ""+Queue.getQueueEta(queuePosition), false)
                     .addField("Current Wait Duration", MathHelper.formatDuration(currentWaitDuration), false);
+            } else {
+                c.getSource().getEmbedBuilder()
+                    .addField("Regular ETA", ""+Queue.getQueueEta(queueStatus.regular()), false);
             }
         });
     }
